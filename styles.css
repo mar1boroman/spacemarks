@@ -247,3 +247,25 @@ body[data-theme="dark"] .app-main-help {
   font-size: 0.8rem;
   color: var(--app-muted);
 }
+
+
+/* Center whole app in viewport */
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+}
+
+.page-shell > .container {
+  margin: auto; /* centers horizontally + vertically inside flex */
+}
+
+/* Extra gap between table and footer */
+.app-main {
+  margin-bottom: 2rem;
+}
+
+/* Optional: slightly more padding on footer if you want it chunkier
+.app-footer {
+  padding-top: 1.5rem;
+}
+*/
