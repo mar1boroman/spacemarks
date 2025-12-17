@@ -1,0 +1,137 @@
+/* =====================================================
+   TABLE COLOR TOKENS
+   ===================================================== */
+
+/* Light theme palette */
+body[data-theme="light"] {
+    --tbl-bg:              #ffffff;
+    --tbl-text:            #111827;
+    --tbl-border:          #e5e7eb;
+  
+    --tbl-header-bg:       #e1e7f9;   /* slightly stronger than page bg */
+    --tbl-header-border:   #d4dbe7;
+    --tbl-header-text:     #111827;
+  
+    --tbl-row-bg:          #ffffff;
+    --tbl-row-hover-bg:    #edf2ff;
+  
+    --tbl-footer-bg:       #f9fafb;
+    --tbl-footer-border:   #e5e7eb;
+  
+    --tbl-page-text:       #374151;
+  
+    --tbl-cell-border:     rgba(148, 163, 184, 0.35);
+    --tbl-title-text:      #111827;
+  }
+  
+  /* Dark theme palette */
+  body[data-theme="dark"] {
+    --tbl-bg:              #2b2d30;
+    --tbl-text:            #e8e8e8;
+    --tbl-border:          #3c3f41;
+  
+    --tbl-header-bg:       #2f3237;
+    --tbl-header-border:   #4b4f52;
+    --tbl-header-text:     #f5f5f5;
+  
+    --tbl-row-bg:          #2b2d30;
+    --tbl-row-hover-bg:    #35383d;
+  
+    --tbl-footer-bg:       #2f3237;
+    --tbl-footer-border:   #4b4f52;
+  
+    --tbl-page-text:       #e8e8e8;
+  
+    --tbl-cell-border:     rgba(148, 163, 184, 0.35);
+    --tbl-title-text:      #f5f5f5;
+  }
+  
+  /* =====================================================
+     SHARED STRUCTURE (applies to both themes)
+     ===================================================== */
+  
+  .tabulator {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--tbl-border);
+    font-size: 0.9rem;
+    background-color: var(--tbl-bg);
+    color: var(--tbl-text);
+  }
+  
+  /* header band + header cells */
+  
+  .tabulator .tabulator-header,
+  .tabulator .tabulator-header .tabulator-col,
+  .tabulator .tabulator-header .tabulator-col-row-handle {
+    background-color: var(--tbl-header-bg) !important;
+    border-color: var(--tbl-header-border) !important;
+    color: var(--tbl-header-text) !important;
+  }
+  
+  .tabulator .tabulator-header .tabulator-col-title,
+  .tabulator .tabulator-header .tabulator-col .tabulator-arrow {
+    color: var(--tbl-header-text) !important;
+  }
+  
+  /* body rows: horizontal separators only, NO striping */
+  
+  .tabulator-row .tabulator-cell {
+    border-right: none;
+    border-bottom: 1px solid var(--tbl-cell-border);
+  }
+  
+  .tabulator-row:last-child .tabulator-cell {
+    border-bottom: none;
+  }
+  
+  .tabulator-row,
+  .tabulator-row.tabulator-row-even,
+  .tabulator-row:nth-child(even) {
+    background-color: var(--tbl-row-bg) !important;
+  }
+  
+  .tabulator-row.tabulator-selectable:hover {
+    background-color: var(--tbl-row-hover-bg) !important;
+  }
+  
+  /* footer */
+  
+  .tabulator .tabulator-footer {
+    background-color: var(--tbl-footer-bg);
+    border-top: 1px solid var(--tbl-footer-border);
+  }
+  
+  /* pagination – neutral in both modes */
+  
+  .tabulator-footer .tabulator-page {
+    border: 1px solid var(--tbl-border);
+    background-color: var(--tbl-bg);
+    color: var(--tbl-page-text);
+    border-radius: 6px;
+    padding: 2px 8px;
+  }
+  
+  .tabulator-footer .tabulator-page:hover {
+    background-color: var(--tbl-row-hover-bg);
+    border-color: var(--tbl-border);
+    color: var(--tbl-page-text);
+  }
+  
+  /* active page looks like the others (no blue/red highlight) */
+  .tabulator-footer .tabulator-page.active {
+    background-color: var(--tbl-bg) !important;
+    border-color: var(--tbl-border) !important;
+    color: var(--tbl-page-text) !important;
+  }
+  
+  .tabulator-footer .tabulator-page.disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  
+  /* cell title text inside description column */
+  
+  #spacers-table .spacer-title {
+    color: var(--tbl-title-text) !important;
+  }

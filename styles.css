@@ -1,0 +1,155 @@
+/* =====================================================
+   APP THEME TOKENS
+   ===================================================== */
+
+/* Light mode */
+body[data-theme="light"] {
+  --app-bg:            #f2f5ff;
+  --app-text:          #111827;
+  --app-muted:         #6b7280;
+
+  --control-border:    rgba(148, 163, 184, 0.6);
+  --control-bg:        transparent;
+
+  --search-bg:         rgba(255, 255, 255, 0.9);
+  --search-border:     rgba(148, 163, 184, 0.5);
+  --search-text:       #111827;
+  --search-placeholder:#6b7280;
+  --search-focus-ring: rgba(59, 130, 246, 0.45);
+
+  --accent:            #3b82f6;
+  --accent-soft:       #e3edff;
+
+  --pill-border:       rgba(148, 163, 184, 0.6);
+  --pill-bg:           rgba(148, 163, 184, 0.04);
+  --pill-hover-border: #3b82f6;
+  --pill-hover-bg:     rgba(59, 130, 246, 0.15);
+}
+
+/* Dark mode */
+body[data-theme="dark"] {
+  --app-bg:            #1e1f22;
+  --app-text:          #e8e8e8;
+  --app-muted:         #b0b4be;
+
+  --control-border:    rgba(148, 163, 184, 0.6);
+  --control-bg:        transparent;
+
+  --search-bg:         #2b2d30;
+  --search-border:     #3c3f41;
+  --search-text:       #f3f4f6;
+  --search-placeholder:#9ca3af;
+  --search-focus-ring: rgba(79, 163, 255, 0.45);
+
+  --accent:            #4fa3ff;
+  --accent-soft:       #32353a;
+
+  --pill-border:       rgba(148, 163, 184, 0.6);
+  --pill-bg:           rgba(148, 163, 184, 0.04);
+  --pill-hover-border: #4fa3ff;
+  --pill-hover-bg:     rgba(79, 163, 255, 0.15);
+}
+
+/* =====================================================
+   LAYOUT
+   ===================================================== */
+
+body.bg-app {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.page-inner {
+  max-width: 960px;
+}
+
+/* Bootstrap's .text-muted uses !important, so we must too for dark */
+body[data-theme="dark"] .text-muted {
+  color: var(--app-muted) !important;
+}
+
+/* =====================================================
+   CONTROLS
+   ===================================================== */
+
+.theme-toggle-btn {
+  border-radius: 999px;
+  padding-inline: 0.75rem;
+  background-color: var(--control-bg);
+  color: var(--app-text);
+  border-color: var(--control-border);
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.search-input {
+  border-radius: 999px;
+  padding-inline: 0.75rem;
+  border-color: var(--search-border);
+  background-color: var(--search-bg);
+  color: var(--search-text);
+}
+
+.search-input::placeholder {
+  color: var(--search-placeholder);
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--search-focus-ring);
+}
+
+/* =====================================================
+   SPACER PILLS + TEXT
+   ===================================================== */
+
+.bookmark-link,
+.bookmark-link:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--pill-border);
+  text-decoration: none;
+  cursor: grab;
+  user-select: none;
+  color: var(--app-text);
+  background-color: var(--pill-bg);
+}
+
+.bookmark-link:hover {
+  border-color: var(--pill-hover-border);
+  background-color: var(--pill-hover-bg);
+}
+
+.bookmark-link:active {
+  cursor: grabbing;
+  transform: translateY(1px);
+}
+
+.bookmark-link::before {
+  content: attr(data-emoji);
+  font-size: 1.2rem;
+}
+
+.spacer-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.spacer-description {
+  font-size: 0.875rem;
+  color: var(--app-muted);
+}
