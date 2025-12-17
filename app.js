@@ -106,7 +106,7 @@ function runGeneratorView() {
     reactiveData: false,
     columns: [
       {
-        title: "Drag & Drop spacer",
+        title: "Drag & Drop",
         field: "emoji",
         headerHozAlign: "right",
         hozAlign: "right",

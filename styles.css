@@ -24,6 +24,9 @@ body[data-theme="light"] {
   --pill-bg:           rgba(148, 163, 184, 0.04);
   --pill-hover-border: #3b82f6;
   --pill-hover-bg:     rgba(59, 130, 246, 0.15);
+
+  --card-bg:           #ffffff;
+  --card-border:       rgba(148, 163, 184, 0.4);
 }
 
 /* Dark mode */
@@ -48,6 +51,9 @@ body[data-theme="dark"] {
   --pill-bg:           rgba(148, 163, 184, 0.04);
   --pill-hover-border: #4fa3ff;
   --pill-hover-bg:     rgba(79, 163, 255, 0.15);
+
+  --card-bg:           #18181b;
+  --card-border:       #27272f;
 }
 
 /* =====================================================
@@ -67,12 +73,64 @@ body.bg-app {
 }
 
 .page-inner {
-  max-width: 960px;
+  max-width: 1100px;
 }
 
-/* Bootstrap's .text-muted uses !important, so we must too for dark */
+/* make Bootstrap .text-muted follow our palette in dark mode */
 body[data-theme="dark"] .text-muted {
   color: var(--app-muted) !important;
+}
+
+/* Two-column main layout: table + help panel */
+.app-main {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;   /* do NOT force equal heights */
+  margin-top: 0.5rem;
+  /* no min-height here – we’ll control per-column */
+}
+.app-main-table {
+  flex: 3 3 0;
+  min-width: 0;              
+  min-height: 460px;         /* baseline height ≈ 10 rows */
+}
+
+.app-main-help {
+  flex: 2 2 0;
+  background-color: var(--card-bg);
+  border-radius: 0.75rem;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.10);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 612px;  
+}
+
+
+body[data-theme="dark"] .app-main-help {
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.6);
+}
+
+
+@media (max-width: 900px) {
+  .app-main {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .app-main-table {
+    min-height: auto;      /* let the table size naturally */
+  }
+
+  .app-main-help {
+    height: auto;          /* no fixed 612px on mobile */
+  }
+
+  .help-media {
+    max-height: 260px;     /* keeps the GIF reasonable on tall phones */
+  }
 }
 
 /* =====================================================
@@ -110,7 +168,7 @@ body[data-theme="dark"] .text-muted {
 }
 
 /* =====================================================
-   SPACER PILLS + TEXT
+   SPACER PILL + TEXT
    ===================================================== */
 
 .bookmark-link,
@@ -151,5 +209,41 @@ body[data-theme="dark"] .text-muted {
 
 .spacer-description {
   font-size: 0.875rem;
+  color: var(--app-muted);
+}
+
+/* =====================================================
+   HELP PANEL CONTENT
+   ===================================================== */
+
+.help-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.help-caption {
+  font-size: 0.8rem;
+  color: var(--app-muted);
+  margin: 0 0 0.75rem;
+}
+
+.help-media {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--accent-soft);
+}
+
+.help-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.help-steps {
+  margin: 0.9rem 0 0;
+  padding-left: 1.05rem;
+  font-size: 0.8rem;
   color: var(--app-muted);
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Bookmark Spacers</title>
+  <title>Spacemarks – Bookmark Bar Spacers for Chrome</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Bootstrap 5 (for general typography/forms) -->
@@ -29,9 +29,14 @@
     <div class="mx-auto page-inner">
       <header class="mb-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
         <div>
-          <h1 class="h4 mb-1">Bookmark Spacers</h1>
+          <h1 class="h4 mb-1">
+            Spacemarks
+            <span class="badge rounded-pill text-bg-warning align-middle ms-2">
+              Chrome only
+            </span>
+          </h1>
           <p class="text-muted small mb-0">
-            Drag any spacer from the first column into your browser’s bookmarks bar.
+            Drag any spacer from the first column into your Google Chrome bookmarks bar.
           </p>
         </div>
         <div class="d-flex align-items-center gap-2 ms-auto">
@@ -52,10 +57,44 @@
         </div>
       </header>
 
-      <!-- NO card/card-body. Just the table. -->
-      <div id="spacers-table"></div>
+      <!-- Table + help panel, equal height -->
+      <main class="app-main">
+        <!-- TABLE: unchanged, just wrapped for layout -->
+        <div class="app-main-table">
+          <div id="spacers-table"></div>
+        </div>
+
+        <!-- HELP PANEL -->
+        <aside class="app-main-help" aria-label="How to use bookmark spacers">
+          <h2 class="help-title">How this works</h2>
+          <p class="help-caption">
+            Show your bookmarks bar in <strong>Google Chrome (desktop)</strong>, then drag any spacer from the table into it.
+          </p>
+
+          <div class="help-media">
+            <img
+              src="how-to-use.gif"
+              alt="Demo of dragging a bookmark spacer into the browser bookmarks bar"
+              loading="lazy"
+            />
+          </div>
+
+          <ol class="help-steps">
+            <li>Make sure your browser’s bookmarks bar is visible.</li>
+            <li>Pick a spacer from the left-hand table.</li>
+            <li>Drag it into your bookmarks bar and drop it in place.</li>
+            <li>Initially you will get the default grey icon - This is expected</li>
+            <li>Click on the newly created bookmark - it should change to the icon you dragged at once</li>
+          </ol>
+        </aside>
+      </main>
+      <footer class="mt-4 pt-3 border-top text-center text-muted small">
+        Spacemarks: Made with ❤️ for dangerously well‑organized bookmark nerds.
+      </footer>
     </div>
   </div>
+
+  
 
   <!-- Bootstrap JS bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -69,4 +108,5 @@
   <!-- App logic -->
   <script src="app.js"></script>
 </body>
+
 </html>

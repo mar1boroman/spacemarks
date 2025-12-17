@@ -2,6 +2,12 @@
 // Each emoji has a unique numeric id and metadata for the table.
 const SPACERS = [
   {
+    id: 0,
+    emoji: " ",
+    title: "Transparent spacer",
+    description: "Add whitespace, combine with other spacers."
+  },
+  {
     id: 1,
     emoji: "⏸️",
     title: "Pause spacer",
